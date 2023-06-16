@@ -12,11 +12,16 @@
 		private var limite_izq: int=32;
 		private var cambia: Timer= new Timer(200, 0);
 		private var tipo: Number;
+		private var lanzar: Timer= new Timer(800, 0);
+		static var puntos2: Number=1;
 		
 		public function antagonista() {
-			addEventListener(Event.ENTER_FRAME, actualiza)
+			addEventListener(Event.ENTER_FRAME, actualiza);
 			cambia.addEventListener(TimerEvent.TIMER, cambia_dir);
 			cambia.start();
+			lanzar.addEventListener(TimerEvent.TIMER, lanza_bala);
+			lanzar.start();
+			addEventListener(Event.ENTER_FRAME, increm);
 		}
 	public function actualiza(e: Event){
 		x+=vel*dir;
@@ -25,6 +30,7 @@
 		if(x<=limite_izq){
 			dir=1
 			}
+		
 		}
 	public function cambia_dir(e: TimerEvent){
 		tipo=Math.floor(Math.random()*8);
@@ -36,6 +42,18 @@
 				break;
 			}
 		}
+		public function lanza_bala(e: TimerEvent){
+			//trace("Lanza bala");
+			var bala_nueva= new bala(x,y);
+			stage.addChild(bala_nueva);
+			
+		}
+		public function increm(e:Event){
+			trace(vel);
+		if((setup.puntos)/5==puntos2){
+			puntos2+=1;
+			vel+=10;
+			}
+		}
 	}
-	
 }
