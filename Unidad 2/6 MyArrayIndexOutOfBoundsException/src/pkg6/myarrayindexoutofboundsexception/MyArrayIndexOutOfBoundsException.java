@@ -6,7 +6,7 @@ public class MyArrayIndexOutOfBoundsException extends IndexOutOfBoundsException{
             int[] array= {1,2,3};
             int x;
         try {
-           x=array[3];
+           x=array[1];
         } 
         catch (ArrayIndexOutOfBoundsException n) {
             System.out.println(n.getMessage()+" No es registro dentro del Array");

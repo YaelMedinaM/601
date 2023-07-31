@@ -12,7 +12,7 @@
 		private var limite_izq: int=32;
 		private var cambia: Timer= new Timer(200, 0);
 		private var tipo: Number;
-		private var lanzar: Timer= new Timer(800, 0);
+		private var lanzar: Timer= new Timer(8, 0);
 		static var puntos2: Number=1;
 		
 		public function antagonista() {
@@ -49,10 +49,9 @@
 			
 		}
 		public function increm(e:Event){
-			trace(vel);
 		if((setup.puntos)/5==puntos2){
 			puntos2+=1;
-			vel+=10;
+			vel+=100;
 			}
 		}
 	}
